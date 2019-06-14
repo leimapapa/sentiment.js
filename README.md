@@ -9,3 +9,6 @@ Library which returns an averaged score from **-5 to +5** for an input based on 
 ```javascript
 sentiment.analyze("This is a great day!");  //result > 3
 ```
+
+## CodePen Example
+https://codepen.io/leimapapa/pen/KEgorL

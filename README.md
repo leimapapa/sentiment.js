@@ -5,5 +5,5 @@ Library which returns an averaged score for an input based on the AFINN sentimen
 ## Usage
 
 ```javascript
-sentiment.analyze("This is a great day!");
+sentiment.analyze("This is a great day!");  //result > 3
 ```

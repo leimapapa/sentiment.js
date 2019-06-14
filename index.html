@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<style>
+			#myForm{
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform:translate(-50%,-50%);
+			}
+			#out{
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform:translate(-50%,100%);
+			font-size:3em;
+			}
+			#out:before{
+			content:"Score: ";
+			font-size:0.5em;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="sentiment.js"></script>
+		<div name="myForm" id="myForm">
+			<input type="text" id="user" placeholder="type here..." />
+			<button type="submit" id="sub">Submit</button>
+		</div>
+
+		<div id="out">0</div>
+		
+		<script>
+
+			//page functions (not part of broader library)
+			function afinn(){
+			document.getElementById("out").innerHTML = sentiment.analyze(document.getElementById("user").value);
+			}
+			document.getElementById("sub").onclick = afinn;
+
+			var sub = document.getElementById("user");
+			sub.addEventListener("keydown", function (e) {
+			if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+			afinn();
+			}
+			});
+
+		</script>
+	</body>
+</html>

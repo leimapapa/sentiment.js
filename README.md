@@ -1,5 +1,5 @@
 # sentiment.js
-Library which returns an averaged score for an input based on the AFINN sentiment analysis.
+Library which returns an averaged score from **-5 to +5** for an input based on the AFINN sentiment analysis.
 
 
 ## Usage

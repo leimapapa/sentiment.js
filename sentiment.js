@@ -23,7 +23,7 @@ THE SOFTWARE.
 var sentiment = {
 
 //corpus
-neg5 = [
+neg5: [
 	"abandon",
 	"bastard",
 	"bastards",
@@ -42,8 +42,8 @@ neg5 = [
 	"son-of-a-bitch",
 	"son of a bitch",
 	"twat"
-];
-neg4 = [
+],
+neg4: [
 	"ass",
 	"assfucking",
 	"asshole",
@@ -88,8 +88,8 @@ neg4 = [
 	"torturing",
 	"whore",
 	"wtf"
-];
-neg3 = [
+],
+neg3: [
 	"abhor",
 	"abhorred",
 	"abhorrent",
@@ -357,8 +357,8 @@ neg3 = [
 	"worsens",
 	"worst",
 	"wrathful"
-];
-neg2 = [
+],
+neg2: [
 	"abandoned",
 	"abandons",
 	"abducted",
@@ -1324,8 +1324,8 @@ neg2 = [
 	"yucky",
 	"zealot",
 	"zealots"
-];
-neg1 = [
+],
+neg1: [
 	"absentee",
 	"absentees",
 	"admit",
@@ -1635,8 +1635,8 @@ neg1 = [
 	"wavering",
 	"widowed",
 	"worn"
-];
-pos1 = [
+],
+pos1: [
 	"aboard",
 	"absorbed",
 	"accept",
@@ -1845,8 +1845,8 @@ pos1 = [
 	"yeah",
 	"yearning",
 	"yes"
-];
-pos2 = [
+],
+pos2: [
 	"abilities",
 	"ability",
 	"absolve",
@@ -2295,8 +2295,8 @@ pos2 = [
 	"yeees",
 	"youthful",
 	"zealous"
-];
-pos3 = [
+],
+pos3: [
 	"admire",
 	"admired",
 	"admires",
@@ -2469,8 +2469,8 @@ pos3 = [
 	"woohoo",
 	"worshiped",
 	"yummy"
-];
-pos4 = [
+],
+pos4: [
 	"amazing",
 	"awesome",
 	"brilliant",
@@ -2516,11 +2516,11 @@ pos4 = [
 	"wow",
 	"wowow",
 	"wowww"
-];
-pos5 = ["breathtaking", "hurrah", "outstanding", "superb", "thrilled"];
+],
+pos5: ["breathtaking", "hurrah", "outstanding", "superb", "thrilled"],
 
 //replaces from each instance of the words in the array
-analyze = function(txt) {
+analyze: function(txt) {
 	var user = txt;
 	user = user.toLowerCase();
 	var analyze = user,
@@ -2534,92 +2534,92 @@ analyze = function(txt) {
 	sentNeg3 = 0,
 	sentNeg4 = 0,
 	sentNeg5 = 0,
-	sentiment = 0;
+	sentimentality = 0;
 	//this accounts for only matching whole words enclosing the pattern with word boundaries
 	//it also adds an random string that should never be seen naturally for counting purposes
 	for (var i = 0; i < sentiment.pos5.length; i++) {
-		var sentiment.pos5Reg = RegExp(
+		var pos5Reg = RegExp(
 				"\\b" + sentiment.pos5[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.pos5Reg)) {
+		if (analyze.match(pos5Reg)) {
 			++sentPos5;
 		}
 	}
 	for (var i = 0; i < sentiment.pos4.length; i++) {
-		var sentiment.pos4Reg = RegExp(
+		var pos4Reg = RegExp(
 				"\\b" + sentiment.pos4[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.pos4Reg)) {
+		if (analyze.match(pos4Reg)) {
 			++sentPos4;
 		}
 	}
 	for (var i = 0; i < sentiment.pos3.length; i++) {
-		var sentiment.pos3Reg = RegExp(
+		var pos3Reg = RegExp(
 				"\\b" + sentiment.pos3[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.pos3Reg)) {
+		if (analyze.match(pos3Reg)) {
 			++sentPos3;
 		}
 	}
 	for (var i = 0; i < sentiment.pos2.length; i++) {
-		var sentiment.pos2Reg = RegExp(
+		var pos2Reg = RegExp(
 				"\\b" + sentiment.pos2[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.pos2Reg)) {
+		if (analyze.match(pos2Reg)) {
 			++sentPos2;
 		}
 	}
 	for (var i = 0; i < sentiment.pos1.length; i++) {
-		var sentiment.pos1Reg = RegExp(
+		var pos1Reg = RegExp(
 				"\\b" + sentiment.pos1[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.pos1Reg)) {
+		if (analyze.match(pos1Reg)) {
 			++sentPos1;
 		}
 	}
 	for (var i = 0; i < sentiment.neg5.length; i++) {
-		var sentiment.neg5Reg = RegExp(
+		var neg5Reg = RegExp(
 				"\\b" + sentiment.neg5[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.neg5Reg)) {
+		if (analyze.match(neg5Reg)) {
 			++sentNeg5;
 		}
 	}
 	for (var i = 0; i < sentiment.neg4.length; i++) {
-		var sentiment.neg4Reg = RegExp(
+		var neg4Reg = RegExp(
 				"\\b" + sentiment.neg4[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.neg4Reg)) {
+		if (analyze.match(neg4Reg)) {
 			++sentNeg4;
 		}
 	}
 	for (var i = 0; i < sentiment.neg3.length; i++) {
-		var sentiment.neg3Reg = RegExp(
+		var neg3Reg = RegExp(
 				"\\b" + sentiment.neg3[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.neg3Reg)) {
+		if (analyze.match(neg3Reg)) {
 			++sentNeg3;
 		}
 	}
 	for (var i = 0; i < sentiment.neg2.length; i++) {
-		var sentiment.neg2Reg = RegExp(
+		var neg2Reg = RegExp(
 				"\\b" + sentiment.neg2[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.neg2Reg)) {
+		if (analyze.match(neg2Reg)) {
 			++sentNeg2;
 		}
 	}
 	for (var i = 0; i < sentiment.neg1.length; i++) {
-		var sentiment.neg1Reg = RegExp(
+		var neg1Reg = RegExp(
 				"\\b" + sentiment.neg1[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&") + "\\b",
 				"g");
-		if (analyze.match(sentiment.neg1Reg)) {
+		if (analyze.match(neg1Reg)) {
 			++sentNeg1;
 		}
 	}
 
 	//add up all of the number of classes of lexicon words and multiply them by their sentiment score
-	sentiment = (sentNeg5 * -5) + (sentNeg4 * -4) + (sentNeg3 * -3) + (sentNeg2 * -2) + (sentNeg1 * -1) + (sentPos1 * 1) + (sentPos2 * 2) + (sentPos3 * 3) + (sentPos4 * 4) + (sentPos5 * 5);
+	sentimentality = (sentNeg5 * -5) + (sentNeg4 * -4) + (sentNeg3 * -3) + (sentNeg2 * -2) + (sentNeg1 * -1) + (sentPos1 * 1) + (sentPos2 * 2) + (sentPos3 * 3) + (sentPos4 * 4) + (sentPos5 * 5);
 
 	var totalLex = sentNeg5 + sentNeg4 + sentNeg3 + sentNeg2 + sentNeg1 + sentPos1 + sentPos2 + sentPos3 + sentPos4 + sentPos5;
 	//dont let the avg divide by 0
@@ -2627,7 +2627,7 @@ analyze = function(txt) {
 		totalLex = 1;
 	}
 	//get the average score to normalize between -5 and 5
-	var sentimentAvg = Math.round(sentiment / totalLex * 100) / 100;
+	var sentimentAvg = Math.round(sentimentality / totalLex * 100) / 100;
 	
 	return sentimentAvg;
 }
